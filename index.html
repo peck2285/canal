@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tableau des Abonnés</title>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+    }
+
+    .alert {
+      color: red;
+      font-weight: bold;
+    }
+
+    .expired {
+      color: gray;
+      font-style: italic;
+    }
+
+    form {
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      background-color: #f9f9f9;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Gestion des Abonnés</h1>
+
+  <!-- Formulaire d'ajout -->
+  <form id="form-abonné">
+    <label for="numAbonne">Numéro d'abonné :</label>
+    <input type="text" id="numAbonne" required>
+    <label for="nom">Nom :</label>
+    <input type="text" id="nom" required>
+    <label for="dateActivation">Date d'activation :</label>
+    <input type="date" id="dateActivation" required>
+    <label for="tel">Téléphone :</label>
+    <input type="text" id="tel" required>
+    <button type="submit">Ajouter Abonné</button>
+  </form>
+
+  <!-- Menu de filtre -->
+  <div>
+    <label for="filter">Filtrer par prévention :</label>
+    <select id="filter">
+      <option value="all">Tous</option>
+      <option value="J-3">J-3</option>
+      <option value="J-2">J-2</option>
+      <option value="J-1">J-1</option>
+      <option value="JJ">JJ</option>
+    </select>
+  </div>
+
+  <!-- Tableau -->
+  <table>
+    <thead>
+      <tr>
+        <th>Numéro d'abonné</th>
+        <th>Nom</th>
+        <th>Date d'activation</th>
+        <th>Fin d'activation</th>
+        <th>Téléphone</th>
+        <th>Date de prévention</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="table-body"></tbody>
+  </table>
+
+  <!-- Formulaire de modification -->
+  <form id="form-modifier" class="hidden">
+    <h3>Modifier Abonné</h3>
+    <label for="edit-numAbonne">Numéro d'abonné :</label>
+    <input type="text" id="edit-numAbonne" required>
+    <label for="edit-nom">Nom :</label>
+    <input type="text" id="edit-nom" required>
+    <label for="edit-dateActivation">Date d'activation :</label>
+    <input type="date" id="edit-dateActivation" required>
+    <label for="edit-tel">Téléphone :</label>
+    <input type="text" id="edit-tel" required>
+    <button type="submit">Enregistrer</button>
+    <button type="button" id="cancel-modifier">Annuler</button>
+  </form>
+
+  <script src="script.js"></script>
+</body>
+</html>
